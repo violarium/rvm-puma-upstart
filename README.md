@@ -7,27 +7,36 @@ This is simplier version of [puma-jungle](https://github.com/puma/puma/tree/mast
 
 ## Why do you want to use it?
 
-* You have found puma-jungle too complicated
+* You want to use [RVM](https://rvm.io/);
+* You have found [puma-jungle](https://github.com/puma/puma/tree/master/tools/jungle/upstart) too complicated;
 * You want to start different puma processes with different users.
 
 
 ## How to use it
 
+For example, you have app, installed into: **/home/webapp/awesome/current**
+
+Create RVM-alias.
+```
+rvm alias create awesome ruby-2.2.3@default
+```
+
 Copy this file to `/etc/init/` directory with appropriate name.
 
-Example:
 ```
-cp puma-app-example.conf /etc/init/puma-awesome-app.conf
+cp puma-app-example.conf /etc/init/awesome.conf
 ```
-
-Look at the file and replace what do you want - look at the comments.
 
 And now you can use it like this:
 
 ```
-start puma-awesome-app
-stop puma-awesome-app
-restart puma-awesome-app
+start awesome
+stop awesome
+restart awesome
+status awesome
 ```
 
 It also will start you application on system boot.
+
+
+For customization look at the file and replace what do you want - look at the comments.
